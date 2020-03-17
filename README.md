@@ -10,3 +10,4 @@ gsutil -m rsync gs://cnn_chips /home/files3
 
 Main_Training_Stuff.ipynb runs shows how to go through the training loop with the dataset.
 
+Test_Models.ipynb runs shows how to go evaluate a model on the test sets.
