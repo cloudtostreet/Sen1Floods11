@@ -3,13 +3,32 @@ Sen1Floods11: a georeferenced dataset to train and test deep learning flood algo
 
 Bonafilia, D., Tellman, B., Anderson, T., Issenberg, E. 2020. Sen1Floods11: a georeferenced dataset to train and test deep learning flood algorithms for Sentinel-1. 2020 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), EarthVision Workshop.
 
+## Dataset Access
 The dataset is available for download at: gs://cnn_chips/
 
 You can download the dataset to the folder that notebooks expect it to be in by running
 
-mkdir /home/files3
-gsutil -m rsync gs://cnn_chips /home/files3
+`$ mkdir /home/files3`
 
+`$ gsutil -m rsync gs://cnn_chips /home/files3`
+
+## Event Metadata
+Locations of the flood events and metadata is contained in *Sen1Floods11_Metadata.geojson*. The following fields can be found:
+
+| Field | Description |
+| ----------- | ----------- |
+| ID | Unique ID for each event |
+| location | Flood event location (country) |
+| ISO_CC | ISO Country Code for flood event location |
+| s1_date | Date (YYYY-MM-dd) that Sentinel-1 image was acquired |
+| s2_date | Date (YYYY-MM-dd) that Sentinel-2 image was acquired
+| orbit| Orbit (ASCENDING or DESCENDING) that Sentinel-1 image was acquired |
+| rel_orbit_num | Relative Orbit Number that Sentinel-1 image was acquired |
+| coincident_size | Number of coincident tiles from S2 |
+| VH_thresh | Threshold used for Sentinel-1 VH band to classify water in reference S1 classification |
+| train_chip | Number of chips used for training |
+| val_chip | Number of chips used for validation |
+
+## Example Use
 Main_Training_Stuff.ipynb runs shows how to go through the training loop with the dataset.
-
 Test_Models.ipynb runs shows how to go evaluate a model on the test sets.
