@@ -10,7 +10,7 @@ The dataset is available for access through Google Cloud Storage bucket at: `gs:
 You can access the dataset bucket using the [gsutil](https://cloud.google.com/storage/docs/gsutil) command. If you would like to download the entire dataset (~14 GB) you can use `gsutil rsync` to clone the bucket to a local directory. The `-m` flag is recommended to speed downloads. See the example below.
 
 ```bash
-$ gsutil -m rsync gs://cnn_chips /YOUR/LOCAL/DIRECTORY/HERE
+$ gsutil -m rsync -r gs://cnn_chips /YOUR/LOCAL/DIRECTORY/HERE
 ```
 
 
@@ -18,7 +18,7 @@ If using an example notebook, you can download the dataset to the folder that no
 
 ```bash
 $ mkdir /home/files3
-$ gsutil -m rsync gs://cnn_chips /home/files3
+$ gsutil -m rsync -r gs://cnn_chips /home/files3
 ```
 
 ## Dataset Information
@@ -29,7 +29,8 @@ Each file follows the naming scheme EVENT_CHIPID_LAYER.tif (e.g. `Bolivia_103757
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | QC | Hand labeled chips containing ground truth | -1: No Data / Not Valid <br> 0: Not Water <br> 1: Water |  GeoTIFF <br> 512 x 512 <br> 1 band <br> Int16  | 0: QC |
 | S1 | Raw Sentinel-1 imagery. <br> IW mode, GRD product <br> See [here](https://developers.google.com/earth-engine/sentinel1) for information on preprocessing | Unit: dB | GeoTIFF <br> 512 x 512 <br> 2 bands <br> Float32 | 0: VV <br> 1: VH |
-| S2 | Raw Sentinel-2 MSI Level-1C imagery <br> Contains all spectral bands (1 - 12) <br> Does not contain QA mask | Unit: TOA reflectance <br> (scaled by 10000) | GeoTIFF <br> 512 x 512 <br> 13 bands <br> UInt16 | 0: B1 <br> 1: B2 <br> 2: B3 <br> 3: B4 <br> 4: B5 <br> 5: B6 <br> 6: B7 <br> 7: B8 <br> 8: B8A <br> 9: B9 <br> 10: B10 <br> 11: B11 <br> 12: B12 |
+| S2 | Raw Sentinel-2 MSI Level-1C imagery <br> Contains all spectral bands (1 - 12) <br> Does not contain QA mask | Unit: TOA reflectance <br> (scaled by 10000) | GeoTIFF <br> 512 x 512 <br> 13 bands <br> UInt16 | 0: B1 (Cirrus) <br> 1: B2 (Blue) <br> 2: B3 (Green) <br> 3: B4 (Red) <br> 4: B5 (RedEdge-1) <br> 5: B6 (RedEdge-2) <br> 6: B7 (RedEdge-3) <br> 7: B8 (NIR) <br> 8: B8A (Narrow NIR) <br> 9: B9 (Water Vapor) <br> 10: B10 (Cirrus) <br> 11: B11 (SWIR-1) <br> 12: B12 (SWIR-2) |
+
 
 ### Example images
 A sample of the dataset for chip *Spain_7370579* is provided at in `./sample`
