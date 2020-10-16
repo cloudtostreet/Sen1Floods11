@@ -14,7 +14,7 @@ _**data/flood_events/HandLabeled**_
 
 `S2Hand/`: 446 Sentinel-2 L1C Chips overlapping labeled data.
 
-`JRCWaterHand/`: 446 chips of permenent water derived from JRC overlapping labeled data.
+`JRCWaterHand/`: 
 
 `S1OtsuLabelHand/`: 446 chips of water/nowater derived from standard OTSU thresholding of Sentinel-1 VH band overlapping labeled data.
 
@@ -28,9 +28,9 @@ _**data/flood_events/WeaklyLabeled**_
 
 _**data/perm_water**_
 
-`S1Perm/`:
+`S1Perm/`: 
 
-`JRCPerm/`: 
+`JRCPerm/`: 446 chips of permenent water derived from JRC overlapping labeled data.
 
 _**splits**_
 
