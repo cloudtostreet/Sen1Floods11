@@ -1,41 +1,43 @@
 # **Sen1Floods11 Documentation**
 
 ## **Bucket Structure**
-Please refer below for a description of each file and folder inside the `cnn_chips` bucket that hosts Sen1Floods11.
+Please refer below for a description of each file and folder inside the `sen1floods11` bucket that hosts Sen1Floods11.
+Note that the most recent data is available within the `v1.1` folder.
 
 ### _**Folders**_
-___
-_**Labeled Data**_
 
-`QC_v2/`: 446 labeled chips of Water/NoWater/NoData.
+_**data/flood_events/HandLabeled**_
 
-`S2/`: 446 Sentinel-2 L1C Chips overlapping labeled data.
+`LabelHand/`: 446 labeled chips of Water/NoWater/NoData.
 
-`S1/`: 446 Sentinel-1 GRD Chips overlapping labeled data.
+`S1Hand/`: 446 Sentinel-1 GRD Chips overlapping labeled data.
 
-_"Other" data matching labels_
+`S2Hand/`: 446 Sentinel-2 L1C Chips overlapping labeled data.
 
-`Perm/:`: 446 chips of permenent water derived from JRC overlapping labeled data.
+`JRCWaterHand/`: 446 chips of permenent water derived from JRC overlapping labeled data.
 
-`S1Flood/`: 446 chips of water/nowater derived from standard OTSU thresholding of Sentinel-1 VH band overlapping labeled data.
+`S1OtsuLabelHand/`: 446 chips of water/nowater derived from standard OTSU thresholding of Sentinel-1 VH band overlapping labeled data.
 
-`S2Flood/`: 446 chips of water/nowater derived from standard classification of Sentinel-2 data overlapping labeled data.
-___
-_**Weak Data**_
+_**data/flood_events/WeaklyLabeled**_
 
-`NoQC/`: 4,385 weakly-labeled chips derived from traditional Sentinel-2 Classification.
+`S1OtsuLabelWeak/`: 4,385 chips of water/nowater derived from standard OTSU thresholding of Sentinel-1 VH band overlapping weakly-labeled data.
 
-`S2_NoQC/:`: 4,385 Sentinel-2 L1C chips overlapping weakly-labled data.
+`S2IndexLabelWeak/`: 4,385 weakly-labeled chips derived from traditional Sentinel-2 Classification.
 
-`S1_NoQC/:`: 4,385 Sentinel-1 GRD chips overlapping weakly-labeled data.
+`S1Weak/`: 4,385 Sentinel-1 GRD chips overlapping weakly-labeled data.
 
-_"Other" data matching weak labels_
+_**data/perm_water**_
 
-`S1Flood_NoQC/`: 4,385 chips of water/nowater derived from standard OTSU thresholding of Sentinel-1 VH band overlapping weakly-labeled data.
-___
+`S1Perm/`:
+
+`JRCPerm/`: 
+
+_**splits**_
+
+`flood_handlabeled/`: contains train, test, and validation splits for handlabeled images of floods (see: `data/flood_events/HandLabeled`).
+
+`perm_water/`: contains train, test, and validation splits for permanent water (see: `data/perm_water/`)
 
 ### _**Files**_
-
-`Sen1Floods11_labeled.tgz`: _.tgz_ file containing labeled data in QC_v2, S2, & S1
 
 `CNN_Chips_FTC.geojson`: _.geojson_ file containing bounding-box and meta-data for each chip in labeled data (does not contain weakly-labeled data).
