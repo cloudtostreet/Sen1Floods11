@@ -45,8 +45,6 @@ A sample of the dataset for chip *Spain_7370579* is provided at in `./sample`
 
 ## Example Use
 [Train.ipynb](Train.ipynb) shows how to train and validate the model on a dataset.
-[Test_Models.ipynb](Test_Models.ipynb) runs shows how to go evaluate a model on the test sets.
-
 
 ## Event Metadata
 Locations of the flood events and metadata is contained in *Sen1Floods11_Metadata.geojson*. The following fields can be found:
