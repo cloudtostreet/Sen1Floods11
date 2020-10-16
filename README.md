@@ -7,25 +7,25 @@ Available Open access at: http://openaccess.thecvf.com/content_CVPRW_2020/html/w
 
 ## Dataset Access
 
-The dataset is available for access through Google Cloud Storage bucket at: `gs://cnn_chips/`
+The dataset is available for access through Google Cloud Storage bucket at: `gs://senfloods11/`
 
 You can access the dataset bucket using the [gsutil](https://cloud.google.com/storage/docs/gsutil) command. If you would like to download the entire dataset (~14 GB) you can use `gsutil rsync` to clone the bucket to a local directory. The `-m` flag is recommended to speed downloads. See the example below.
 
 ```bash
-$ gsutil -m rsync -r gs://cnn_chips /YOUR/LOCAL/DIRECTORY/HERE
+$ gsutil -m rsync -r gs://sen1floods11 /YOUR/LOCAL/DIRECTORY/HERE
 ```
 
 
 If using an example notebook, you can download the dataset to the folder that notebooks expect it to be in by running
 
 ```bash
-$ mkdir /home/files3
-$ gsutil -m rsync -r gs://cnn_chips /home/files3
+$ mkdir /home/files
+$ gsutil -m rsync -r gs://sen1floods11 /home/files
 ```
 
 ## Dataset Information
 
-Each file follows the naming scheme EVENT_CHIPID_LAYER.tif (e.g. `Bolivia_103757_S2.tif`). Chip IDs are unique, and not shared between events. Events are named by country and further information on each event (including dates) can be found in the event metadata below. Each layer has a separate GeoTIFF, and can contain multiple bands in a stacked GeoTIFF. All images are projected to WGS 84 (`EPSG:4326`) at 10 m ground resolution.
+Each file follows the naming scheme EVENT_CHIPID_LAYER.tif (e.g. `Bolivia_103757_S2Hand.tif`). Chip IDs are unique, and not shared between events. Events are named by country and further information on each event (including dates) can be found in the event metadata below. Each layer has a separate GeoTIFF, and can contain multiple bands in a stacked GeoTIFF. All images are projected to WGS 84 (`EPSG:4326`) at 10 m ground resolution.
 
 | Layer | Description | Values | Format | Bands |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
@@ -44,7 +44,7 @@ A sample of the dataset for chip *Spain_7370579* is provided at in `./sample`
 
 
 ## Example Use
-[Main_Training_Stuff.ipynb](Main_Training_Stuff.ipynb) runs shows how to go through the training loop with the dataset.
+[Train.ipynb](Train.ipynb) shows how to train and validate the model on a dataset.
 [Test_Models.ipynb](Test_Models.ipynb) runs shows how to go evaluate a model on the test sets.
 
 
